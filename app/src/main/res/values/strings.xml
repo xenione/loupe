@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Loupe</string>
+    <string name="m_factor">Magnificant factor:</string>
+    <string name="radius">Loupe radius</string>
 </resources>
