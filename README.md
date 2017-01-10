@@ -1,9 +1,9 @@
-#Loupe effect (Magnifying glass) Nice zoom for your images.
+#Loupe effect (Magnifying glass) 
+ Nice zoom for your images.
 
 ![loupe](https://cloud.githubusercontent.com/assets/4138527/21819975/2f9a57ba-d76e-11e6-8afc-fc21a118088c.gif)
 
 Add it on your project:
-
 Gradle:
 ```java 
 compile 'com.xenione.widgets:loupe:1.0.0'
