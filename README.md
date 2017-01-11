@@ -1,6 +1,9 @@
 #Loupe effect (Magnifying glass) 
  Nice zoom for your images.
 
+ [![Download](https://api.bintray.com/packages/xenione/maven/loupe/images/download.svg) ](https://bintray.com/xenione/maven/loupe/_latestVersion)
+
+
 ![loupe](https://cloud.githubusercontent.com/assets/4138527/21819975/2f9a57ba-d76e-11e6-8afc-fc21a118088c.gif)
 
 Add it on your project:
