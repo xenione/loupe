@@ -1,6 +1,8 @@
 #Loupe effect (Magnifying glass) 
  Nice zoom for your images.
 
+Have a look at the demo app available on [google play](https://play.google.com/store/apps/details?id=loupe.xenione.com.loupe)
+
  [![Download](https://api.bintray.com/packages/xenione/maven/loupe/images/download.svg) ](https://bintray.com/xenione/maven/loupe/_latestVersion)
 
 

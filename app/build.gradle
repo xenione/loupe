@@ -1,9 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'xenione'
+            keyPassword '5aigizzKqqQ'
+            storeFile file('C:/Users/Eugeni/Desktop/me/swipeLayout/keystore/easyswipebuilder.jks')
+            storePassword '5aigizzKqqQ'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
     defaultConfig {
         applicationId "loupe.xenione.com.loupe"
         minSdkVersion 15
@@ -15,6 +22,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
 }
