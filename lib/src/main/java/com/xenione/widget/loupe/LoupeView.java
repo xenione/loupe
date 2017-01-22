@@ -10,6 +10,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.widget.ImageView;
@@ -39,6 +40,8 @@ public class LoupeView extends ImageView {
     private final static int LOUPE_RADIUS_DP = 100;
     private final static int MAGNIFICATION_FACTOR_DEFAULT = 2;
     private final static int EXTRA_OFFSET = 15;
+
+    private boolean isBitmapDrawable = false;
 
     private int mFactor = MAGNIFICATION_FACTOR_DEFAULT;
     private int mLoupeRadius;
@@ -126,9 +129,12 @@ public class LoupeView extends ImageView {
 
     @Override
     public void invalidateDrawable(Drawable dr) {
-        Matrix matrix = getImageMatrix();
-        mDrawableBounds.set(getDrawable().getBounds());
-        matrix.mapRect(mDrawableBounds);
+        if (dr instanceof BitmapDrawable) {
+            isBitmapDrawable = true;
+            Matrix matrix = getImageMatrix();
+            mDrawableBounds.set(getDrawable().getBounds());
+            matrix.mapRect(mDrawableBounds);
+        }
         super.invalidateDrawable(dr);
     }
 
@@ -141,7 +147,12 @@ public class LoupeView extends ImageView {
         }
     }
 
-    private void drawLoupe(Canvas canvas){
+    private void drawLoupe(Canvas canvas) {
+        if (!isBitmapDrawable) {
+            Log.w("LoupeView", "In order to get zoom in your images the src image should be a Bitmap");
+            return;
+        }
+
         canvas.save();
         clipCircle(canvas);
 
