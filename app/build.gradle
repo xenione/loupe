@@ -1,14 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'xenione'
-            keyPassword '5aigizzKqqQ'
-            storeFile file('C:/Users/Eugeni/Desktop/me/swipeLayout/keystore/easyswipebuilder.jks')
-            storePassword '5aigizzKqqQ'
-        }
-    }
+   
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
     defaultConfig {
