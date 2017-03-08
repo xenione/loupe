@@ -9,10 +9,12 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 
 /**
@@ -66,10 +68,19 @@ public class LoupeView extends ImageView {
 
     public LoupeView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        configDrawing();
         initPaints();
         mLoupeRadius = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, LOUPE_RADIUS_DP, getResources().getDisplayMetrics());
         mExtraOffsetX = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, EXTRA_OFFSET, getResources().getDisplayMetrics());
         mExtraOffsetY = mExtraOffsetX;
+    }
+
+    private void configDrawing() {
+        // disable hardware accelerate because it doesn't support Canvas.clipPath()
+        //https://developer.android.com/guide/topics/graphics/hardware-accel.html
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
     }
 
     private void initPaints() {
