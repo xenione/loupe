@@ -143,7 +143,7 @@ public class LoupeView extends ImageView {
         if (dr instanceof BitmapDrawable) {
             isBitmapDrawable = true;
             Matrix matrix = getImageMatrix();
-            mDrawableBounds.set(getDrawable().getBounds());
+            mDrawableBounds.set(dr.getBounds());
             matrix.mapRect(mDrawableBounds);
         }
         super.invalidateDrawable(dr);
